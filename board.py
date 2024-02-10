@@ -2,7 +2,7 @@
 
 class Tictactoe:
     def _init_(self):
-        self.board = [[j for j in range (3)] for i in range (3)]
+        self.board = [["A" for  j in range (3)] for i in range (3)]
           
 
     def play(self, pos:int, piece:str):
@@ -22,6 +22,12 @@ class Tictactoe:
         for i in range (3):
             for j in range (3):
                 if self.board(j)
+
+
+
+    def comparePieces(self, a:str, b:str):
+        if a == "A" and b == ""
+        
 
     
     

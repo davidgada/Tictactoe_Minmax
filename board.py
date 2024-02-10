@@ -15,11 +15,13 @@ class Tictactoe:
     
     def printBoard(self):
         for num in self.board:
-            print('I', num,)
+            print('I'.join(num))
             print('-'* 5)
 
     def checkWinner(self):
-        if(self)
+        for i in range (3):
+            for j in range (3):
+                if self.board(j)
 
     
     

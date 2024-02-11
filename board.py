@@ -20,13 +20,20 @@ class Tictactoe:
 
     def checkWinner(self):
         for i in range (3):
-            for j in range (3):
+            for j = i + 1 in range (3):
                 if self.board(j)
 
 
 
     def comparePieces(self, a:str, b:str):
-        if a == "A" and b == ""
+        if a == "A" or b == "A":
+            return False
+        elif a == "X" and b == "X":
+            return True
+        elif a == "O" and b == "O"
+            return True 
+        
+
         
 
     

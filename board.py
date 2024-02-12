@@ -7,11 +7,11 @@ class Tictactoe:
 
     def play(self, pos:int, piece:str):
         if pos < 3:
-            self.board[0][pos] = "X"
+            self.board[0][pos] = piece
         elif pos > 2 and pos < 6 :
-            self.board[1][pos - 3] = "X"
+            self.board[1][pos - 3] = piece
         else:
-            self.board[2][pos - 6] = "X"
+            self.board[2][pos - 6] = piece
     
     def printBoard(self):
         for num in self.board:
@@ -36,36 +36,27 @@ class Tictactoe:
 
         i1 = 0
         j1 = 0
+        it1 = 0
+        jt1 = 0
         while i1 < 3 and j1 < 3:
-            checker = self.board.comparePieces([i1][j1], [i1 + 1][j1 + 1])
-            i1 += 1
-            j1 += 1
+            checker = self.board.comparePieces([i1][j1], [it1][jt1])
+            it1 += 1
+            jt1 += 1
+
+
+
 
         i2 = 0
         j2 = 2
+        it2 = 0
+        jt2 = 2
         while i2 < 3 and j2 < 3:
-            checker = self.board.comparePieces([i2][j2], [i2 + 1][j2 - 1])
-            i2+= 1
-            j2 += 1
+            checker = self.board.comparePieces([i2][j2], [it2][jt2])
+            it2 += 1
+            jt2 -= 1
+   
 
-
-
-
-
-        for i in range (3):
-            for j in range (3):
-                checker = self.board.comparePieces([i][j], [i + 1],[j + 1])
-                if i == 2 or j == 2:
-                    break
-
-
-        for i in range (3):
-            for j in range (3):
-                checker = self.board.comparePieces([i][j], [i + 1],[j + 1])
-                if i == 2 or j == 2:
-                    break
-        
-        
+ 
 
 
         

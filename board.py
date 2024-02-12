@@ -1,7 +1,7 @@
 
 
 class Tictactoe:
-    def _init_(self):
+    def __init__(self):
         self.board = [["A" for  j in range (3)] for i in range (3)]
           
 
@@ -16,8 +16,8 @@ class Tictactoe:
     def printBoard(self):
         print("The board is here")
         for num in self.board:
-            print('I'.join(num))
-            print('-'* 5)
+            print(' | '.join(num))
+            print('-'* 10)
 
     def checkWinner(self):
         checker = False

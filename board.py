@@ -14,6 +14,7 @@ class Tictactoe:
             self.board[2][pos - 6] = piece
     
     def printBoard(self):
+        print("The board is here")
         for num in self.board:
             print('I'.join(num))
             print('-'* 5)

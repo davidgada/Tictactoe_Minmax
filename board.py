@@ -20,20 +20,24 @@ class Tictactoe:
 
     def checkWinner(self):
         checker = False
+
+        #Check for the rows
         for i in range (3):
             for j in range (3):
                 checker = self.board.comparePieces([i][j], [i][j + 1])
                 if j == 2:
                     break
-        
 
+        
+        #Check for the columns
         for i in range (3):
             for j in range (3):
                 checker = self.board.comparePieces([i][j], [i + 1][j])
                 if i == 2:
                     break
 
-
+        
+        #Check for left to right diagonal
         i1 = 0
         j1 = 0
         it1 = 0
@@ -44,8 +48,7 @@ class Tictactoe:
             jt1 += 1
 
 
-
-
+        #Check for right to left diagonal            
         i2 = 0
         j2 = 2
         it2 = 0
@@ -53,13 +56,7 @@ class Tictactoe:
         while i2 < 3 and j2 < 3:
             checker = self.board.comparePieces([i2][j2], [it2][jt2])
             it2 += 1
-            jt2 -= 1
-   
-
- 
-
-
-        
+            jt2 -= 1        
         return checker
 
 

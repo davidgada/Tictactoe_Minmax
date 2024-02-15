@@ -8,4 +8,5 @@ class Ai:
     def play(self, pos:int):
         self.board.play(pos, "O")
 
-    def minMax()
+    def minMax(self):
+        

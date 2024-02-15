@@ -51,18 +51,21 @@ class Tictactoe:
         return checker
     
     #Check if all spaces are filled and the winning condition is not met 
-    def checkDraw(self):
-        if self.checkWinner == True:
-            check = False 
-        else:            
-            for i in range (3):
+    def checkDraw(self):  
+        check = True                     
+        for i in range (3):
+            if check == True:   
                 for j in range (3):
-                    if self.board[i][j] != "A":
-                        check = True
-                    else:
+                    if self.board[i][j] == "A":
                         check = False
+                        break
+                        print("Shouldn't run here")
+                    else:
+                        check = True
                     if j == 2:
                         break
+            else:
+                break
         return check
     
     def gameOver(self):

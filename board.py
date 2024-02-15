@@ -14,64 +14,53 @@ class Tictactoe:
             self.board[2][pos - 6] = piece
     
     def printBoard(self):
-        print("The board is here")
         for num in self.board:
             print(' | '.join(num))
             print('-'* 10)
 
-    def checkWinner(self):
-        checker = False
-
+    def checkWinner(self): 
+        checker = False       
         #Check for the rows
         for i in range (3):
+            if checker == False:
+                for j in range (2):
+                    checker = self.comparePieces(self.board[i][j], self.board[i][j + 1])
+                    if not checker:
+                        break
+            else:
+                break
+
+        if checker == False:
+            #Check for the columns
             for j in range (3):
-                checker = self.board.comparePieces([i][j], [i][j + 1])
-                if j == 2:
+                if checker == False:
+                    for i in range (2):
+                        checker = self.comparePieces(self.board[i][j], self.board[i + 1][j])
+                        if not checker:
+                            break
+                else:
                     break
 
-        
-        #Check for the columns
-        for i in range (3):
-            for j in range (3):
-                checker = self.board.comparePieces([i][j], [i + 1][j])
-                if i == 2:
-                    break
 
-        
-        #Check for left to right diagonal
-        i1 = 0
-        j1 = 0
-        it1 = 0
-        jt1 = 0
-        while i1 < 3 and j1 < 3:
-            checker = self.board.comparePieces([i1][j1], [it1][jt1])
-            it1 += 1
-            jt1 += 1
-
-
-        #Check for right to left diagonal            
-        i2 = 0
-        j2 = 2
-        it2 = 0
-        jt2 = 2
-        while i2 < 3 and j2 < 3:
-            checker = self.board.comparePieces([i2][j2], [it2][jt2])
-            it2 += 1
-            jt2 -= 1        
+        if checker == False:
+            # Check for left to right diagonal
+            checker = self.comparePieces(self.board[0][0], self.board[1][1]) and self.comparePieces(self.board[1][1], self.board[2][2])
+        if checker == False:
+            # Check for right to left diagonal
+            checker = checker or (self.comparePieces(self.board[0][2], self.board[1][1]) and self.comparePieces(self.board[1][1], self.board[2][0]))   
         return checker
     
     #Check if all spaces are filled and the winning condition is not met 
     def checkDraw(self):
-        if(self.checkWinner == True):
-            return False
-        else:
-            check = False
+        if self.checkWinner == True:
+            check = False 
+        else:            
             for i in range (3):
                 for j in range (3):
                     if self.board[i][j] != "A":
                         check = True
                     else:
-                        return False
+                        check = False
                     if j == 2:
                         break
         return check

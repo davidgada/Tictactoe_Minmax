@@ -9,4 +9,15 @@ class Ai:
         self.board.play(pos, "O")
 
     def minMax(self):
+        if self.board.checkDraw():
+            value = 0
+            return value
+        elif self.board.checkWinner():
+            value = 1
+            return value
+        else:
+            value = -1
+            return value
         
+
+

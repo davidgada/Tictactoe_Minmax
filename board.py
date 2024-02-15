@@ -87,6 +87,22 @@ class Tictactoe:
         else:
             return False
         
+    def checkTurn(self):
+        aiturn = 0
+        pturn = 0        
+        for i in range (3):             
+            for j in range (3):
+                if self.board[i][j] == "O":
+                    aiturn =+ 1
+                elif self.board =="X":
+                    pturn += 1
+
+        if pturn > aiturn:
+            return "Min"
+        elif aiturn > pturn:
+            return "Max"
+    
+        
    
 
         

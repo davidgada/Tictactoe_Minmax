@@ -11,7 +11,7 @@ class Ai:
         baction = -1
         for a in self.board.actionSpace():
             self.resultState(self.board, a)
-            value = self.MinMax()
+            value = self.MiniMax()
             (self.resultState(self.board, a)).undoplay(a)
             if(value > bvalue):
                 bvalue = value
@@ -19,7 +19,7 @@ class Ai:
             self.board.play(baction, "O")
             
 
-    def MiniMax(self):
+    def MiniMax(self, board: Tictactoe):
         if self.board.checkWinner():           
             return 1, 
         elif self.board.checkDraw():

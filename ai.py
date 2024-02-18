@@ -6,7 +6,7 @@ class Ai:
     def __init__(self, board:Tictactoe):
         self.board = board
 
-    def play(self, pos:int):
+    def play(self):
         bvalue= -math.inf
         baction = -1
         for a in self.board.actionSpace():

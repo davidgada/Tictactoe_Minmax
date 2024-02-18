@@ -1,4 +1,4 @@
-
+import copy
 
 class Tictactoe:
     def __init__(self):
@@ -57,21 +57,8 @@ class Tictactoe:
             if check == True:   
                 for j in range (3):
                     if self.board[i][j] == "A":
-                        check = False
-                        break
-                        print("Shouldn't run here")
-                    else:
-                        check = True
-                    if j == 2:
-                        break
-            else:
-                break
-        return check
-    
-    def gameOver(self):
-        if self.checkDraw() == True or self.checkWinner() == True:
-            return True
-        else:
+                         acopy = Tictactoe()
+
             return False               
 
 
@@ -90,6 +77,7 @@ class Tictactoe:
     def checkTurn(self):
         #Ai plays O, max
         #Player plays x, min
+        #Player always plays first
         aicount = 0
         pcount = 0        
         for i in range (3):             
@@ -101,9 +89,42 @@ class Tictactoe:
         if pcount > aicount:
             print("Running Max")
             return "Max"
-        elif aicount > pcount:
+        elif aicount >= pcount:
             print("Running Min")
             return "Min"
+        
+
+    def actionSpace(self):
+            actionList = []
+            for i in range (3):             
+                for j in range (3):
+                    if self.board[i][j] == "A" and i == 0:
+                        actionList.append(j)
+                    elif self.board[i][j] == "A" and i == 1:
+                        if j == 0:
+                            actionList.append(3)
+                        elif j == 1:
+                            actionList.append(4)
+                        elif j == 2:
+                            actionList.append(5)
+                    elif self.board[i][j] == "A" and i == 2:
+                        if j == 0:
+                            actionList.append(6)
+                        elif j == 1:
+                            actionList.append(7)
+                        elif j == 2:
+                            actionList.append(8)
+            return actionList
+    
+    
+    
+
+
+
+
+
+
+
     
         
    

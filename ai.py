@@ -27,8 +27,17 @@ class Ai:
         else:
             return -1
         values = []
-        for a in self.board.actionSpace():
-                values.append(Minimax(self.resultState(self.board, a))) = max(value, self.MiniMax(resultState(self.board, a)))
+        if(self.board.checkTurn()== "Max"):
+            for a in self.board.actionSpace():
+                    values.append(Minimax(self.resultState(self.board, a))) 
+                    
+            return max(values)
+        
+        if(self.board.checkTurn()== "Max"):
+            for a in self.board.actionSpace():
+                    values.append(Minimax(self.resultState(self.board, a))) 
+                    
+            return max(values)
 
 
             

@@ -4,18 +4,23 @@ from ai import Ai
 # from player import Player  
 
 def main():
-    # print("Who dares Play against the Tic God")
-    # print("Prepare to lose mortal")
-    # input1  =  input("Enter 1 to start Game, 2 to quit: ")
-    # if input == 1:
-    #     board1 = Tictactoe()
-    #     board1.printBoard()
-    #     player = Player(board1)
-    #     ai =  Ai(board1)
-    #     while board1.gameOver == False:
-    #         input2 = input("Your move mortal")
-    #         board1.play(input2, "X")
-    #         ai.minmax()
+    print("Who dares Play against the Tic God")
+    print("Prepare to lose mortal")
+    input1  =  int(input("Enter 1 to start Game, 2 to quit: "))
+    if input1 == 1:
+        board1 = Tictactoe()
+        board1.printBoard()
+        print("\n")        
+        ai =  Ai(board1)
+        while board1.gameOver != False:
+            input2 = int(input("Your move mortal"))
+            board1.play(input2, "X")
+            board1.printBoard()
+            print("\n")  
+            ai.play()
+            board1.printBoard()
+            print("\n")        
+
 
     
 
@@ -24,24 +29,33 @@ def main():
 
 
 
-    board1 = Tictactoe()
+    # board1 = Tictactoe()
+    # print("Original Board","\n")
     # board1.printBoard()
-    board1.play(0,"X")
-    board1.play(1,"O")
-    board1.play(2,"X")
-    board1.play(3,"O")
-    board1.play(4,"X")
-    board1.play(5,"X")
-    board1.play(6,"O")
-    board1.play(7,"A")
-    board1.play(8,"O")
-    board1.printBoard()
-    ai = Ai(board1)
-    print("The value of the minimax is",ai.MiniMax())
+    # print("Initializing Board with pieces","\n")
+    # board1.play(0,"O")
+    # board1.play(1,"O")
+    # board1.play(2,"X")
+    # board1.play(3,"X")
+    # board1.play(4,"A")
+    # board1.play(5,"X")
+    # board1.play(6,"O")
+    # board1.play(7,"X")
+    # board1.play(8,"O")
+    # board1.printBoard()
+    # print("Ai plays move now","\n")
+    # ai = Ai(board1)
+    # ai.play()
+    # board1.printBoard()
 
 
 
-    
+
+
+
+
+
+    # print("The value of the minimax is",ai.MiniMax())
     # if board1.checkDraw() == True:
     #     print("Draw")
     # else:

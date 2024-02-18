@@ -10,9 +10,9 @@ class Ai:
         bvalue= -math.inf
         baction = -1
         for a in self.board.actionSpace():
-            self.resultState(self.board, a)
-            value = self.MiniMax()
-            (self.resultState(self.board, a)).undoplay(a)
+            # self.resultState(self.board, a)
+            value = self.MiniMax(self.board)
+            # (self.resultState(self.board, a)).undoplay(a)
             if(value > bvalue):
                 bvalue = value
                 baction = a
@@ -21,7 +21,7 @@ class Ai:
 
     def MiniMax(self, board: Tictactoe):
         if self.board.checkWinner():           
-            return 1, 
+            return 1 
         elif self.board.checkDraw():
             return 0
         else:
@@ -29,15 +29,15 @@ class Ai:
         values = []
         if(self.board.checkTurn()== "Max"):
             for a in self.board.actionSpace():
-                    values.append(Minimax(self.resultState(self.board, a))) 
+                values.append(Minimax(self.resultState(self.board, a))) 
                     
             return max(values)
         
-        if(self.board.checkTurn()== "Max"):
+        if(self.board.checkTurn()== "Min"):
             for a in self.board.actionSpace():
-                    values.append(Minimax(self.resultState(self.board, a))) 
+                values.append(Minimax(self.resultState(self.board, a))) 
                     
-            return max(values)
+            return min(values)
 
 
             

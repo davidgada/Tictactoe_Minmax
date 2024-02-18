@@ -88,19 +88,22 @@ class Tictactoe:
             return False
         
     def checkTurn(self):
-        aiturn = 0
-        pturn = 0        
+        #Ai plays O, max
+        #Player plays x, min
+        aicount = 0
+        pcount = 0        
         for i in range (3):             
             for j in range (3):
                 if self.board[i][j] == "O":
-                    aiturn =+ 1
-                elif self.board =="X":
-                    pturn += 1
-
-        if pturn > aiturn:
-            return "Min"
-        elif aiturn > pturn:
+                    aicount =+ 1                    
+                elif self.board[i][j] =="X":
+                    pcount += 1                
+        if pcount > aicount:
+            print("Running Max")
             return "Max"
+        elif aicount > pcount:
+            print("Running Min")
+            return "Min"
     
         
    

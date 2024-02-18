@@ -26,8 +26,8 @@ def main():
 
     board1 = Tictactoe()
     board1.printBoard()
-    board1.play(0,"X")
-    board1.play(1,"O")
+    board1.play(0,"O")
+    board1.play(1,"A")
     board1.play(2,"A")
     board1.play(3,"A")
     board1.play(4,"A")

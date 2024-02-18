@@ -28,9 +28,7 @@ class Ai:
             return -1
         values = []
         for a in self.board.actionSpace():
-                self.board.play(a, "O")
-                values.append(Minimax()) = max(value, self.MiniMax(resultState(self.board, a)))
-                self.board.undoplay(a)
+                values.append(Minimax(self.resultState(self.board, a))) = max(value, self.MiniMax(resultState(self.board, a)))
 
 
             

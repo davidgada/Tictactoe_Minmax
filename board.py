@@ -51,13 +51,28 @@ class Tictactoe:
         return checker
     
     #Check if all spaces are filled and the winning condition is not met 
+    
     def checkDraw(self):  
         check = True                     
         for i in range (3):
             if check == True:   
                 for j in range (3):
                     if self.board[i][j] == "A":
-                         acopy = Tictactoe()
+                         check = False
+                         break
+                    else:
+                        check = True
+                    if j == 2:
+                        break
+            else:
+                break
+        return check
+
+    def gameOver(self):
+        if self.checkDraw() == True or self.checkWinner() == True:
+            return True
+        else:
+
 
             return False               
 
@@ -115,6 +130,16 @@ class Tictactoe:
                         elif j == 2:
                             actionList.append(8)
             return actionList
+    
+    def undoplay(self, pos: int):
+        if pos < 3:
+            self.board[0][pos] = "A"
+        elif pos > 2 and pos < 6 :
+            self.board[1][pos - 3] = "A"
+        else:
+            self.board[2][pos - 6] = "A"
+    
+
     
     
     

@@ -9,7 +9,7 @@ class Ai:
     def play(self):
         print("My move","\n")  
         bvalue= -math.inf
-        baction = -1
+        baction = None
         for a in self.board.actionSpace():
             # self.resultState(self.board, a)
             value = self.MiniMax(self.board)
@@ -21,20 +21,31 @@ class Ai:
             
 
     def MiniMax(self, board: Tictactoe):
-        if board.checkWinner() and board.checkTurn() == "Max":           
-            return 1 
+        if board.checkWinner():
+        # If the maximizing player wins, return a positive value
+            if board.checkWhoWon() == "O":
+                return 1
+        # If the minimizing player wins, return a negative value
+            elif board.checkWhoWon() == "X":
+                return -1
+    # If the game ends in a draw, return 0
         elif board.checkDraw():
             return 0
-        else:
-            return -1
+        # else:
+        # # If the game is not over, return a special value to indicate the non-terminal state
+        #     return None
+
+
+        
         values = []
         for a in board.actionSpace():
-            values.append(Minimax(self.resultState(board, a))) 
+            values.append(self.MiniMax(self.resultState(board, a))) 
 
 
         if(board.checkTurn()== "Max"):
-            print(values)
             return max(values)
+            print("Running")
+        
         else:   
                           
             return min(values)

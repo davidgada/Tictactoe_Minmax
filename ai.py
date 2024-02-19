@@ -7,6 +7,7 @@ class Ai:
         self.board = board
 
     def play(self):
+        print("My move","\n")  
         bvalue= -math.inf
         baction = -1
         for a in self.board.actionSpace():

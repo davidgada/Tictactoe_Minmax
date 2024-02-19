@@ -68,8 +68,8 @@ class Tictactoe:
                 break
         return check
 
-    def gameOver(self):
-        if self.checkDraw() == True or self.checkWinner() == True:
+    def isGameOver(self):
+        if self.checkWinner() == True or self.checkDraw() == True:
             return True
         else:
 
@@ -92,7 +92,7 @@ class Tictactoe:
     def checkTurn(self):
         #Ai plays O, max
         #Player plays x, min
-        #Player always plays first
+        #Ai always plays first
         aicount = 0
         pcount = 0        
         for i in range (3):             
@@ -101,9 +101,9 @@ class Tictactoe:
                     aicount =+ 1                    
                 elif self.board[i][j] =="X":
                     pcount += 1                
-        if pcount > aicount:
+        if pcount >= aicount:
             return "Max"
-        elif aicount >= pcount:
+        elif aicount > pcount:
             return "Min"
         
 
@@ -168,11 +168,11 @@ class Tictactoe:
         if checker == False:
             # Check for left to right diagonal
             checker = self.comparePieces(self.board[0][0], self.board[1][1]) and self.comparePieces(self.board[1][1], self.board[2][2])
-            who = self.board[i][j]
+            who = self.board[0][0]
         if checker == False:
             # Check for right to left diagonal
             checker = checker or (self.comparePieces(self.board[0][2], self.board[1][1]) and self.comparePieces(self.board[1][1], self.board[2][0])) 
-            who = self.board[i][j]  
+            who = self.board[0][2]  
         return who
     
     

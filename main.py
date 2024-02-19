@@ -4,7 +4,7 @@ from ai import Ai
 # from player import Player  
 
 def main():
-    print("Who dares Play against the Tic God")
+    print("Who dares play against the god TiK")
     print("Prepare to lose mortal")
     input1  =  int(input("Enter 1 to start Game, 2 to quit: "))
     if input1 == 1:
@@ -12,14 +12,33 @@ def main():
         board1.printBoard()
         print("\n")        
         ai =  Ai(board1)
-        while board1.gameOver != False:
-            input2 = int(input("Your move mortal"))
-            board1.play(input2, "X")
-            board1.printBoard()
-            print("\n")  
+        gameOver = False
+
+        while not board1.isGameOver():
             ai.play()
             board1.printBoard()
-            print("\n")        
+            print("\n")
+            if board1.isGameOver():
+                break
+            input2 = int(input("Your move mortal"))
+            board1.play(input2, "X")
+            board1.printBoard()            
+            print("\n")  
+            if board1.isGameOver():
+                break
+
+            
+            
+        if board1.checkWinner():
+            if board1.checkWhoWon() == "X":
+                print("How, How did you defeat me")
+            else:
+                print("Your challenge was an act of sheer folly")
+        elif board1.checkDraw():
+            print("A draw, you still cannot defeat me")
+    else:
+        print("Begone from this place")
+        print("\n")
 
 
     
@@ -72,7 +91,7 @@ def main():
 
 
 
-    print("\n")
+   
 
 
 

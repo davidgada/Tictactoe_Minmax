@@ -102,10 +102,8 @@ class Tictactoe:
                 elif self.board[i][j] =="X":
                     pcount += 1                
         if pcount > aicount:
-            print("Running Max")
             return "Max"
         elif aicount >= pcount:
-            print("Running Min")
             return "Min"
         
 
@@ -138,6 +136,45 @@ class Tictactoe:
             self.board[1][pos - 3] = "A"
         else:
             self.board[2][pos - 6] = "A"
+
+
+
+    def checkWhoWon(self): 
+        checker = False             
+        #Check for the rows
+        for i in range (3):
+            if checker == False:
+                for j in range (2):
+                    checker = self.comparePieces(self.board[i][j], self.board[i][j + 1])
+                    who = self.board[i][j]
+                    if not checker:
+                        break
+            else:
+                break
+
+        if checker == False:
+            #Check for the columns
+            for j in range (3):
+                if checker == False:
+                    for i in range (2):
+                        checker = self.comparePieces(self.board[i][j], self.board[i + 1][j])
+                        who = self.board[i][j]
+                        if not checker:
+                            break
+                else:
+                    break
+
+
+        if checker == False:
+            # Check for left to right diagonal
+            checker = self.comparePieces(self.board[0][0], self.board[1][1]) and self.comparePieces(self.board[1][1], self.board[2][2])
+            who = self.board[i][j]
+        if checker == False:
+            # Check for right to left diagonal
+            checker = checker or (self.comparePieces(self.board[0][2], self.board[1][1]) and self.comparePieces(self.board[1][1], self.board[2][0])) 
+            who = self.board[i][j]  
+        return who
+    
     
 
     

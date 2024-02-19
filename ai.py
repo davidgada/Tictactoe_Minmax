@@ -20,23 +20,22 @@ class Ai:
             
 
     def MiniMax(self, board: Tictactoe):
-        if self.board.checkWinner():           
+        if board.checkWinner() and board.checkTurn() == "Max":           
             return 1 
-        elif self.board.checkDraw():
+        elif board.checkDraw():
             return 0
         else:
             return -1
         values = []
-        if(self.board.checkTurn()== "Max"):
-            for a in self.board.actionSpace():
-                values.append(Minimax(self.resultState(self.board, a))) 
-                    
+        for a in board.actionSpace():
+            values.append(Minimax(self.resultState(board, a))) 
+
+
+        if(board.checkTurn()== "Max"):
+            print(values)
             return max(values)
-        
-        if(self.board.checkTurn()== "Min"):
-            for a in self.board.actionSpace():
-                values.append(Minimax(self.resultState(self.board, a))) 
-                    
+        else:   
+                          
             return min(values)
 
 

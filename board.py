@@ -101,9 +101,9 @@ class Tictactoe:
                     aicount =+ 1                    
                 elif self.board[i][j] =="X":
                     pcount += 1                
-        if pcount >= aicount:
+        if pcount > aicount:
             return "Max"
-        elif aicount > pcount:
+        elif aicount >= pcount:
             return "Min"
         
 

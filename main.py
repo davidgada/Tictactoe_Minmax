@@ -14,16 +14,16 @@ def main():
         ai =  Ai(board1)
         gameOver = False
 
-        while not board1.isGameOver():
-            ai.play()
-            board1.printBoard()
-            print("\n")
-            if board1.isGameOver():
-                break
+        while not board1.isGameOver():            
             input2 = int(input("Your move mortal"))
             board1.play(input2, "X")
             board1.printBoard()            
             print("\n")  
+            if board1.isGameOver():
+                break
+            ai.play()
+            board1.printBoard()
+            print("\n")
             if board1.isGameOver():
                 break
 

@@ -9,6 +9,7 @@ def main():
     input1  =  int(input("Enter 1 to start Game, 2 to quit: "))
     if input1 == 1:
         board1 = Tictactoe()
+        print("Empty Board","\n")
         board1.printBoard()
         print("\n")        
         ai =  Ai(board1)

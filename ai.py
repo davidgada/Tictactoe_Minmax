@@ -28,7 +28,7 @@ class Ai:
         # If the minimizing player wins, return a negative value
             elif board.checkWhoWon() == "X":
                 return -1
-    # If the game ends in a draw, return 0
+        # If the game ends in a draw, return 0
         elif board.checkDraw():
             return 0
         # else:
@@ -44,13 +44,14 @@ class Ai:
 
         if(board.checkTurn()== "Max"):
             return max(values)
-            print("Running")
         
         else:   
                           
             return min(values)
 
 
+    def analyzer(self, board: Tictactoe):
+        
             
         
 

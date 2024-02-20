@@ -47,11 +47,7 @@ class Ai:
         
         else:   
                           
-            return min(values)
-
-
-    def analyzer(self, board: Tictactoe):
-        
+            return min(values)      
             
         
 

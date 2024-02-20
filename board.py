@@ -50,7 +50,7 @@ class Tictactoe:
             checker = checker or (self.comparePieces(self.board[0][2], self.board[1][1]) and self.comparePieces(self.board[1][1], self.board[2][0]))   
         return checker
     
-    #Check if all spaces are filled and the winning condition is not met 
+    #Check if all spaces are filled and  
     
     def checkDraw(self):  
         check = True                     
